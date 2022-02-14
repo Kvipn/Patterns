@@ -5,7 +5,7 @@ namespace Patterns
 {
     class UnitGenerator
     {
-        public List<Unit> GetUnits(int unitAmount)
+        public List<Unit> GetRandomUnits(int unitAmount)
         {
             List<Unit> units = new List<Unit>();
             Random random = new Random();
@@ -14,8 +14,30 @@ namespace Patterns
             {
                 units.Add(new Unit(unitFactory[random.Next(3)]));
             }
+            return units;       
+        }
+
+        public List<Unit> GetSpecialUnits(int size, UnitFactory factory)
+        {
+            List<Unit> units = new List<Unit>();
+            for (int i = 0; i < size; i++)
+            {
+                units.Add(new Unit(factory));
+            }
             return units;
-        
+        }
+    }
+
+    class ArcherGenerator
+    {
+        public List<Unit> GetUnits(int size)
+        {
+            List<Unit> units = new List<Unit>();
+            for (int i=0;i<size;i++)
+            {
+                units.Add(new Unit(new ArcherFactory()));
+            }
+            return units;
         }
     }
 

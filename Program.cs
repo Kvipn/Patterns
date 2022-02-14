@@ -14,7 +14,7 @@ namespace Patterns
             
             List<Unit> units = new List<Unit>();
             UnitGenerator unitGenerator = new UnitGenerator();
-            units.AddRange(unitGenerator.GetUnits(12));
+            units.AddRange(unitGenerator.GetRandomUnits(12));
 
             Console.WriteLine( Program.Fight(units,enemies));
 
